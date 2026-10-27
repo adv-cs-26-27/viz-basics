@@ -181,7 +181,7 @@ def model_two():
 #
 
 
-# Q12. The code below adds a label to each point. Call the function.
+# Q12. The code below adds a label to each point. Call the function
 #      and then answer the questions.
 
 def model_two_labeled():
