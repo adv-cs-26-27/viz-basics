@@ -12,19 +12,17 @@ import matplotlib.pyplot as plt
 # numbers.
 # ======================================================================
 
-votes = {"Pizza": 12, "Tacos": 9, "Sushi": 7, "Burgers": 4}
-
 def model_one():
+    votes = {"Pizza": 12, "Tacos": 9, "Sushi": 7, "Burgers": 4}
     names = list(votes.keys())
     counts = list(votes.values())
-
     plt.bar(names, counts)
     plt.xlabel("Food")
     plt.ylabel("Number of votes")
     plt.title("Favorite Foods")
     plt.show()
 
-# Q1. Run the program. What does each bar represent? What determines the
+# Q1. Call the model_one() function. What does each bar represent? What determines the
 #     height of each bar?
 #
 #
@@ -45,9 +43,9 @@ def model_one():
 #
 
 
-# Q4. Make each of the following changes to the program above, ONE AT A
-#     TIME, and run it. Describe what happens to the chart. (Undo each
-#     change before trying the next one.)
+# Q4. Make each of the following changes to the function above, ONE AT A
+#     TIME, and run it. Describe what happens to the chart, and undo each
+#     change before trying the next one.
 #
 #   CHANGE 1: Add  "Salad": 6  to the votes dictionary.
 #   What happened to the chart?
@@ -69,6 +67,8 @@ def model_one():
 
 # the code below builds a chart from the same data in a different way. 
 def model_one_sorted():
+    votes = {"Pizza": 12, "Tacos": 9, "Sushi": 7, "Burgers": 4}
+
     names = sorted(votes)
     counts = []
     for n in names:
@@ -120,7 +120,7 @@ students = {
     "Hal": {"year": 2, "hours": 7, "score": 91},
 }
 
-def model_two():
+def build_hours_scores_lists():
     hours = []
     scores = []
     for name in students:
@@ -130,6 +130,10 @@ def model_two():
     print(hours)
     print(scores)
 
+    return hours, scores
+
+def model_two():
+    hours, scores = build_hours_scores_lists()
     plt.scatter(hours, scores)
     plt.xlabel("Hours studied")
     plt.ylabel("Exam score")
@@ -167,12 +171,12 @@ def model_two():
 
 # Q11. Predict what would happen if you removed the line
 #         scores.append(students[name]["score"])
-#      from the loop above. Then try it (put a # at the start of that line
-#      and run the program), and record the result. Remove the # when
-#      finished.
-# ANSWER (prediction):
+#      from the loop in build_hours_scores_lists(). Then, 
+#      comment out the line and record the result. 
 #
-# ANSWER (result):
+# Prediction:
+#
+# Result:
 #
 #
 
@@ -181,6 +185,7 @@ def model_two():
 #      and then answer the questions.
 
 def model_two_labeled():
+    hours, scores = build_hours_scores_lists()
     plt.scatter(hours, scores)
     for name in students:
         plt.annotate(name, (students[name]["hours"], students[name]["score"]))
